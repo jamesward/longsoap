@@ -1,0 +1,27 @@
+package models;
+
+import java.util.List;
+
+public class Cart {
+
+    private List<CartItem> items;
+
+    public List<CartItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<CartItem> items) {
+        this.items = items;
+    }
+
+    public Double total() {
+        Double total = 0.0;
+
+        for (CartItem cartItem : items) {
+            total += (cartItem.getPrice() * cartItem.getQuantity());
+        }
+
+        return total;
+    }
+
+}

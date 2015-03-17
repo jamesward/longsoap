@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+       ">
+
+    <!-- Import Apache CXF configuration and Play! transport plugin. -->
+    <import resource="classpath:cxf.xml" />
+
+    <jaxws:endpoint
+        name="userProfile"
+        address="/services/userprofile"
+        implementor="services.userprofile.UserProfileServiceImpl"
+        transportId="http://cxf.apache.org/transports/play" />
+
+    <jaxws:endpoint
+        name="cart"
+        address="/services/cart"
+        implementor="services.cart.CartServiceImpl"
+        transportId="http://cxf.apache.org/transports/play" />
+
+</beans>
