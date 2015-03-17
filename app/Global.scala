@@ -10,8 +10,7 @@ import scala.util.Random
 
 object RandomDelayFilter extends Filter {
   def apply(nextFilter: (RequestHeader) => Future[Result])(requestHeader: RequestHeader): Future[Result] = {
-    //val randomDelay = Random.nextInt(30) + 15
-    val randomDelay = 0
+    val randomDelay = Random.nextInt(30) + 15
     Promise.timeout(Unit, randomDelay, TimeUnit.SECONDS).flatMap(_ => nextFilter(requestHeader))
   }
 }
