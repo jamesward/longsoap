@@ -4,6 +4,8 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
+scalaVersion := "2.11.6"
+
 libraryDependencies ++= Seq(
   "org.springframework" % "spring-expression" % "4.0.3.RELEASE",
   "org.springframework" % "spring-aop" % "4.0.3.RELEASE",
